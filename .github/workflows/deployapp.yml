@@ -4,7 +4,7 @@ on: [push]
 
 env:
   AZURE_WEBAPP_NAME: testdeploycsc2    # set this to your application's name
-  AZURE_WEBAPP_PACKAGE_PATH: '.decompressed'      # set this to the path to your web app project, defaults to the repository root
+  AZURE_WEBAPP_PACKAGE_PATH: './decompressed'      # set this to the path to your web app project, defaults to the repository root
   DOTNET_VERSION: '3.1.x'           # set this to the dot net version to use
 
 jobs:
@@ -25,7 +25,7 @@ jobs:
       - name: 'Decompress the package'
         uses: TonyBogdanov/zip@1.0
         with:
-          args: unzip -qq -r ./simpletestapp.zip -d ".decompressed"
+          args: unzip -qq -r ./simpletestapp.zip -d "./decompressed"
       
       - name: 'Run Azure webapp deploy'
         uses: azure/webapps-deploy@v2
