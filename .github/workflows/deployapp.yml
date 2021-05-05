@@ -26,6 +26,8 @@ jobs:
         uses: TonyBogdanov/zip@1.0
         with:
           args: unzip -qq -r ./simpletestapp.zip -d "./decompressed"
+        
+      - name: "check the files"
         run: ls
       
       - name: 'Run Azure webapp deploy'
