@@ -16,25 +16,19 @@ jobs:
       
       - uses: actions/checkout@v2
 
-      - name: Login via Azure CLI  
-        uses: azure/login@v1
-        with: 
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
+      #- name: Login via Azure CLI  
+      #  uses: azure/login@v1
+      #  with: 
+      #    creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-      - name: "check the files"
-        run: ls
-
+     
       # Deploy to Azure Web apps
       - name: 'Decompress the package'
         uses: TonyBogdanov/zip@1.0
         with:
           args: unzip -qq ./simpletestapp.zip -d ./simpletestapp
 
-      - name: "check again the files"
-        run: ls
-      
-      
-      
+           
       - name: 'Run Azure webapp deploy'
         uses: azure/webapps-deploy@v2
         with: 
