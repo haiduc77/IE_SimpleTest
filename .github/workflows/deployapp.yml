@@ -21,14 +21,16 @@ jobs:
         with: 
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
+      - name: "check the files"
+        run: ls
+
       # Deploy to Azure Web apps
       - name: 'Decompress the package'
         uses: TonyBogdanov/zip@1.0
         with:
           args: unzip -qq /simpletestapp/simpletestapp.zip -d ./simpletestapp/unzipped
 
-      - name: "check the files"
-        run: ls
+      
       
       
       - name: 'Run Azure webapp deploy'
