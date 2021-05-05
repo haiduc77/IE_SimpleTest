@@ -4,7 +4,7 @@ on: [push]
 
 env:
   AZURE_WEBAPP_NAME: testdeploycsc2    # set this to your application's name
-  AZURE_WEBAPP_PACKAGE_PATH: '.'      # set this to the path to your web app project, defaults to the repository root
+  AZURE_WEBAPP_PACKAGE_PATH: '.\simpletestapp\unzipped'      # set this to the path to your web app project, defaults to the repository root
   DOTNET_VERSION: '3.1.x'           # set this to the dot net version to use
 
 jobs:
@@ -21,15 +21,14 @@ jobs:
         with: 
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-      - name: "check the files"
-        run: ls
-
       # Deploy to Azure Web apps
       - name: 'Decompress the package'
         uses: TonyBogdanov/zip@1.0
         with:
-          args: unzip ./simpletestapp.zip
-        
+          args: unzip -qq /simpletestapp/simpletestapp.zip -d ./simpletestapp/unzipped
+
+      - name: "check the files"
+        run: ls
       
       
       - name: 'Run Azure webapp deploy'
