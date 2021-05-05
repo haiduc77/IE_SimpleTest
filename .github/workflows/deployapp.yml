@@ -25,7 +25,7 @@ jobs:
       - name: 'Decompress the package'
         uses: TonyBogdanov/zip@1.0
         with:
-          args: zip -qq -r ./simpletestapp.zip
+          args: zip -qq -r ./simpletestapp.zip .
       
       - name: 'Run Azure webapp deploy'
         uses: azure/webapps-deploy@v2
