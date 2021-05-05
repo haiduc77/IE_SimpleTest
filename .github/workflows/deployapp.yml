@@ -30,6 +30,8 @@ jobs:
         with:
           args: unzip -qq ./simpletestapp.zip -d ./simpletestapp
 
+      - name: "check again the files"
+        run: ls
       
       
       
