@@ -28,7 +28,7 @@ jobs:
       - name: 'Decompress the package'
         uses: TonyBogdanov/zip@1.0
         with:
-          args: unzip -qq -r ./simpletestapp.zip -d "./decompressed"
+          args: unzip ./simpletestapp.zip
         
       
       
