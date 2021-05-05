@@ -28,4 +28,9 @@ jobs:
           app-name: ${{ env.AZURE_WEBAPP_NAME }} # Replace with your app name
           #publish-profile: ${{ secrets.AZURE_CREDENTIALS  }} # Define secret variable in repository settings as per action documentation
           package: '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}'
-          run: 7z x simpletestapp.zip
+
+      - name: 'Decompress the package'
+        uses: TonyBogdanov/zip@1.0
+        with:
+          args: zip -qq -r ./simpletestapp.zip .
+          
