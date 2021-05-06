@@ -1,5 +1,7 @@
+name: Deploy Infrastructure
+
 on: [worflow_dispatch]
-name: AzureARMSample
+
 
 jobs:
   build-and-deploy:
