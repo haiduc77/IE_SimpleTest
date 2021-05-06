@@ -1,6 +1,6 @@
 name: Deploy Infrastructure
 
-on: [worflow_dispatch]
+on: [worfklow_dispatch]
 
 
 jobs:
