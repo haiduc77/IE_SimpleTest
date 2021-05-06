@@ -102,7 +102,7 @@
             "type": "Microsoft.Web/sites/config",
             "apiVersion": "2018-11-01",
             "name": "[concat(parameters('sites_vismasimpletestapp_name'), '/web')]",
-            "location": "West Europe",
+            "location": "[resourceGroup().location]",
             "dependsOn": [
                 "[resourceId('Microsoft.Web/sites', parameters('sites_vismasimpletestapp_name'))]"
             ],
