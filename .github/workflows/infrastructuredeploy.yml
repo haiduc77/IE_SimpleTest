@@ -14,5 +14,5 @@ jobs:
     - uses: azure/arm-deploy@v1
       with:
         resourceGroupName: testdeploymentscsc
-        template: ./ATMTemplates/appservicetemplate.json
+        template: /ATMTemplates/appservicetemplate.json
         
