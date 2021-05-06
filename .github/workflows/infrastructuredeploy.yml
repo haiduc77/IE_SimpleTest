@@ -16,11 +16,10 @@ jobs:
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
     
-    -name: 'Deploying infrastructure'
-      - uses: azure/arm-deploy@v1
-        with:
-          resourceGroupName: testdeploymentscsc
-          template: ./appservicetemplate.json
+    - uses: azure/arm-deploy@v1
+      with:
+        resourceGroupName: testdeploymentscsc
+        template: ./appservicetemplate.json
     
     - name: 'Decompress the package'
         uses: TonyBogdanov/zip@1.0
