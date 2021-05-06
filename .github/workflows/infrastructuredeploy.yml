@@ -11,6 +11,6 @@ jobs:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
     - uses: azure/arm-deploy@v1
       with:
-        resourceGroupName: github-action-arm-rg
+        resourceGroupName: testdeploymentscsc
         template: ./infrastructuredeploy.json
         
