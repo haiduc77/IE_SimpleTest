@@ -1,0 +1,16 @@
+on: [worflow_dispatch]
+name: AzureARMSample
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@main
+    - uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+    - uses: azure/arm-deploy@v1
+      with:
+        resourceGroupName: github-action-arm-rg
+        template: ./infrastructuredeploy.json
+        

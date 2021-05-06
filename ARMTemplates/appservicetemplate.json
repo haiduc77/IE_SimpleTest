@@ -19,7 +19,7 @@
             "apiVersion": "2014-04-01",
             "location": "[resourceGroup().location]",
             "tags": {
-                "displayName": "sqlServer1"
+                "displayName": "cscdatabsevsm"
             },
             "properties": {
                 "administratorLogin": "adminUsername",
@@ -59,6 +59,7 @@
               }
             ]
         },
+        
         {
             "type": "Microsoft.Web/sites",
             "apiVersion": "2018-11-01",
