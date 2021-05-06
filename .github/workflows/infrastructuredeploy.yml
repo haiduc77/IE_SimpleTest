@@ -21,14 +21,14 @@ jobs:
         resourceGroupName: testdeploymentscsc
         template: ./appservicetemplate.json
     
-    - name: 'Decompress the package'
-        uses: TonyBogdanov/zip@1.0
+    
+    - uses: TonyBogdanov/zip@1.0
         with:
           args: unzip -qq ./simpletestapp.zip -d ./simpletestapp
 
            
-      - name: 'Run Azure webapp deploy'
-        uses: azure/webapps-deploy@v2
+     
+    - uses: azure/webapps-deploy@v2
         with: 
           app-name: ${{ env.AZURE_WEBAPP_NAME }} # Replace with your app name
           package: '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}'
