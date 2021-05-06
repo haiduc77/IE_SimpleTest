@@ -1,0 +1,189 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "sites_vismasimpletestapp_name": {
+            "defaultValue": "csctestappvsm",
+            "type": "String"
+        },
+        "serverfarms_vsmsimpletestapp_externalid": {
+            "defaultValue": "/subscriptions/6804d92f-755e-4d9c-b62d-82f7c3be954d/resourceGroups/simpletestapp/providers/Microsoft.Web/serverfarms/vsmsimpletestapp",
+            "type": "String"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "name": "cscdatabsevsm",
+            "type": "Microsoft.Sql/servers",
+            "apiVersion": "2014-04-01",
+            "location": "[resourceGroup().location]",
+            "tags": {
+                "displayName": "sqlServer1"
+            },
+            "properties": {
+                "administratorLogin": "adminUsername",
+                "administratorLoginPassword": "AdminPassword123!"
+            },
+            "resources": [
+                {
+                    "type": "firewallRules",
+                    "apiVersion": "2014-04-01",
+                    "dependsOn": [
+                        "[resourceId('Microsoft.Sql/servers', 'cscdatabsevsm')]"
+                    ],
+                    "location": "[resourceGroup().location]",
+                    "name": "AllowAllWindowsAzureIps",
+                    "properties": {
+                        "startIpAddress": "0.0.0.0",
+                        "endIpAddress": "0.0.0.0"
+                    }
+                },
+              {
+                  "name": "cscdatabsevsm/cscdatabsevsm1",
+                  "type": "Microsoft.Sql/servers/databases",
+                  "apiVersion": "2014-04-01",
+                  "location": "[resourceGroup().location]",
+                  "tags": {
+                      "displayName": "cscdatabsevsm1"
+                  },
+                  "dependsOn": [
+                      "[resourceId('Microsoft.Sql/servers', 'cscdatabsevsm')]"
+                  ],
+                  "properties": {
+                      "collation": "SQL_Latin1_General_CP1_CI_AS",
+                      "edition": "Basic",
+                      "maxSizeBytes": "1073741824",
+                      "requestedServiceObjectiveName": "Basic"
+                  }
+              }
+            ]
+        },
+        {
+            "type": "Microsoft.Web/sites",
+            "apiVersion": "2018-11-01",
+            "name": "[parameters('sites_vismasimpletestapp_name')]",
+            "location": "West Europe",
+            "tags": {
+                "hidden-related:diagnostics/applicationInsightsSettings": "{\"ApiKey\":\"/26/oyC74OrL5c02nQcTECVfnCcbbKy6CTUbkaXaFFfrvUmKxVry+WI7Mfo4OKZn\",\"AppId\":\"2915b0df-182b-4fc5-85ea-25d700330204\"}"
+            },
+            "kind": "app",
+            "properties": {
+                "enabled": true,
+                "hostNameSslStates": [
+                    {
+                        "name": "[concat(parameters('sites_vismasimpletestapp_name'), '.azurewebsites.net')]",
+                        "sslState": "Disabled",
+                        "hostType": "Standard"
+                    },
+                    {
+                        "name": "[concat(parameters('sites_vismasimpletestapp_name'), '.scm.azurewebsites.net')]",
+                        "sslState": "Disabled",
+                        "hostType": "Repository"
+                    }
+                ],
+                
+                "reserved": false,
+                "isXenon": false,
+                "hyperV": false,
+                "siteConfig": {},
+                "scmSiteAlsoStopped": false,
+                "clientAffinityEnabled": true,
+                "clientCertEnabled": false,
+                "hostNamesDisabled": false,
+                "containerSize": 0,
+                "dailyMemoryTimeQuota": 0,
+                "httpsOnly": false,
+                "redundancyMode": "None"
+            }
+        },
+        {
+            "type": "Microsoft.Web/sites/config",
+            "apiVersion": "2018-11-01",
+            "name": "[concat(parameters('sites_vismasimpletestapp_name'), '/web')]",
+            "location": "West Europe",
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/sites', parameters('sites_vismasimpletestapp_name'))]"
+            ],
+            "tags": {
+                "hidden-related:diagnostics/applicationInsightsSettings": "{\"ApiKey\":\"/26/oyC74OrL5c02nQcTECVfnCcbbKy6CTUbkaXaFFfrvUmKxVry+WI7Mfo4OKZn\",\"AppId\":\"2915b0df-182b-4fc5-85ea-25d700330204\"}"
+            },
+            "properties": {
+                "numberOfWorkers": 1,
+                "defaultDocuments": [
+                    "Default.htm",
+                    "Default.html",
+                    "Default.asp",
+                    "index.htm",
+                    "index.html",
+                    "iisstart.htm",
+                    "default.aspx",
+                    "index.php",
+                    "hostingstart.html"
+                ],
+                "netFrameworkVersion": "v4.0",
+                "requestTracingEnabled": false,
+                "remoteDebuggingEnabled": false,
+                "httpLoggingEnabled": false,
+                "logsDirectorySizeLimit": 35,
+                "detailedErrorLoggingEnabled": false,
+                "publishingUsername": "$vismasimpletestapp",
+                "azureStorageAccounts": {},
+                "scmType": "None",
+                "use32BitWorkerProcess": true,
+                "webSocketsEnabled": false,
+                "alwaysOn": false,
+                "managedPipelineMode": "Integrated",
+                "virtualApplications": [
+                    {
+                        "virtualPath": "/",
+                        "physicalPath": "site\\wwwroot",
+                        "preloadEnabled": false
+                    }
+                ],
+                "loadBalancing": "LeastRequests",
+                "experiments": {
+                    "rampUpRules": []
+                },
+                "autoHealEnabled": false,
+                "localMySqlEnabled": false,
+                "ipSecurityRestrictions": [
+                    {
+                        "ipAddress": "Any",
+                        "action": "Allow",
+                        "priority": 1,
+                        "name": "Allow all",
+                        "description": "Allow all access"
+                    }
+                ],
+                "scmIpSecurityRestrictions": [
+                    {
+                        "ipAddress": "Any",
+                        "action": "Allow",
+                        "priority": 1,
+                        "name": "Allow all",
+                        "description": "Allow all access"
+                    }
+                ],
+                "scmIpSecurityRestrictionsUseMain": false,
+                "http20Enabled": false,
+                "minTlsVersion": "1.2",
+                "ftpsState": "AllAllowed",
+                "reservedInstanceCount": 0
+            }
+        },
+        {
+            "type": "Microsoft.Web/sites/hostNameBindings",
+            "apiVersion": "2018-11-01",
+            "name": "[concat(parameters('sites_vismasimpletestapp_name'), '/', parameters('sites_vismasimpletestapp_name'), '.azurewebsites.net')]",
+            "location": "West Europe",
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/sites', parameters('sites_vismasimpletestapp_name'))]"
+            ],
+            "properties": {
+                "siteName": "vismasimpletestapp",
+                "hostNameType": "Verified"
+            }
+        }
+    ]
+}
