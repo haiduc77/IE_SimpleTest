@@ -1,2 +1,2 @@
-# testdeploycsc
-"serverFarmId": "[parameters('serverfarms_vsmsimpletestapp_externalid')]",
+# simpletestapp
+Vsm assessment repository

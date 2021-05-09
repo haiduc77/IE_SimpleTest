@@ -1,0 +1,24 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "applicationName": {
+            "value": "simpletestwebapp"
+            
+        },        
+        "sqlServerName" : {
+            "value": "simpletestwebapp123"
+        },
+        "administratorLogin": {
+            "value": "cscsilviu"
+        },
+        
+        "administratorLoginPassword": {
+            "value":"Planeta1234!"
+        },
+        "sqldbName" : {
+            "value": "simpletestwebapp_db"
+        }
+        
+    }
+}

@@ -18,8 +18,9 @@ jobs:
     
     - uses: azure/arm-deploy@v1
       with:
-        resourceGroupName: testdeploymentscsc
+        resourceGroupName: simpletestappvsm
         template: ./appservicetemplate.json
+        parameters: ./appservicetemplate.parameters.json
     
     
     - uses: TonyBogdanov/zip@1.0

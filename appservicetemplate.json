@@ -2,35 +2,75 @@
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "sites_vismasimpletestapp_name": {
+        "applicationName": {
             "defaultValue": "csctestappvsm",
             "type": "String"
+        },        
+        "sqlServerName" : {
+            "type": "string"
         },
-        "serverfarms_vsmsimpletestapp_externalid": {
-            "defaultValue": "/subscriptions/6804d92f-755e-4d9c-b62d-82f7c3be954d/resourceGroups/simpletestapp/providers/Microsoft.Web/serverfarms/vsmsimpletestapp",
-            "type": "String"
+        "administratorLogin": {
+            "type": "string"
+        },
+        
+        "administratorLoginPassword": {
+            "type":"string"
+        },
+
+        "sqldbName" : {
+            "type": "string"
+        },
+        "sqldbCollection" : {
+            "type": "string",
+            "minLength": 1,
+            "defaultValue": "SQL_Latin1_General_CP1_CI_AS"
+        },
+        "sqldbEdition": {
+            "type": "string",
+            "defaultValue": "Basic",
+            "allowedValues":[
+                "Basic",
+                "Standard",
+                "Premium"
+            ]
+        },
+        "sqldbRequestedObjectiveName": {
+            "type":"string",
+            "defaultValue": "Basic",
+            "allowedValues": [
+                "Basic",
+                "S0",
+                "S1",
+                "S2",
+                "P1",
+                "P2",
+                "P3"
+            ]
         }
+
+        
+
     },
     "variables": {},
     "resources": [
         {
-            "name": "cscdatabsevsm",
+            "name": "[parameters('sqlServerName')]",
             "type": "Microsoft.Sql/servers",
             "apiVersion": "2014-04-01",
             "location": "[resourceGroup().location]",
             "tags": {
-                "displayName": "cscdatabsevsm"
+                "displayName": "[parameters('sqlServerName')]"
             },
             "properties": {
-                "administratorLogin": "adminUsername",
-                "administratorLoginPassword": "AdminPassword123!"
+                "administratorLogin": "[parameters('administratorLogin')]",
+                "administratorLoginPassword": "[parameters('administratorLoginPassword')]"
             },
             "resources": [
                 {
                     "type": "firewallRules",
                     "apiVersion": "2014-04-01",
                     "dependsOn": [
-                        "[resourceId('Microsoft.Sql/servers', 'cscdatabsevsm')]"
+                        "[resourceId('Microsoft.Sql/servers', parameters('sqlServerName'))]"
                     ],
                     "location": "[resourceGroup().location]",
                     "name": "AllowAllWindowsAzureIps",
@@ -40,21 +80,21 @@
                     }
                 },
               {
-                  "name": "cscdatabsevsm/cscdatabsevsm1",
+                  "name": "[concat(parameters('sqlServerName'), '/', parameters('sqldbName'))]",
                   "type": "Microsoft.Sql/servers/databases",
                   "apiVersion": "2014-04-01",
                   "location": "[resourceGroup().location]",
                   "tags": {
-                      "displayName": "cscdatabsevsm1"
+                      "displayName": "[parameters('sqldbName')]"
                   },
                   "dependsOn": [
-                      "[resourceId('Microsoft.Sql/servers', 'cscdatabsevsm')]"
+                      "[resourceId('Microsoft.Sql/servers', parameters('sqlServerName'))]"
                   ],
                   "properties": {
-                      "collation": "SQL_Latin1_General_CP1_CI_AS",
-                      "edition": "Basic",
+                      "collation": "[parameters('sqldbCollection')]",
+                      "edition": "[parameters('sqldbEdition')]",
                       "maxSizeBytes": "1073741824",
-                      "requestedServiceObjectiveName": "Basic"
+                      "requestedServiceObjectiveName": "[parameters('sqldbRequestedObjectiveName')]"
                   }
               }
             ]
@@ -63,7 +103,7 @@
         {
             "type": "Microsoft.Web/sites",
             "apiVersion": "2018-11-01",
-            "name": "[parameters('sites_vismasimpletestapp_name')]",
+            "name": "[parameters('applicationName')]",
             "location": "West Europe",
             "tags": {
                 "hidden-related:diagnostics/applicationInsightsSettings": "{\"ApiKey\":\"/26/oyC74OrL5c02nQcTECVfnCcbbKy6CTUbkaXaFFfrvUmKxVry+WI7Mfo4OKZn\",\"AppId\":\"2915b0df-182b-4fc5-85ea-25d700330204\"}"
@@ -73,12 +113,12 @@
                 "enabled": true,
                 "hostNameSslStates": [
                     {
-                        "name": "[concat(parameters('sites_vismasimpletestapp_name'), '.azurewebsites.net')]",
+                        "name": "[concat(parameters('applicationName'), '.azurewebsites.net')]",
                         "sslState": "Disabled",
                         "hostType": "Standard"
                     },
                     {
-                        "name": "[concat(parameters('sites_vismasimpletestapp_name'), '.scm.azurewebsites.net')]",
+                        "name": "[concat(parameters('applicationName'), '.scm.azurewebsites.net')]",
                         "sslState": "Disabled",
                         "hostType": "Repository"
                     }
@@ -101,10 +141,10 @@
         {
             "type": "Microsoft.Web/sites/config",
             "apiVersion": "2018-11-01",
-            "name": "[concat(parameters('sites_vismasimpletestapp_name'), '/web')]",
+            "name": "[concat(parameters('applicationName'), '/web')]",
             "location": "[resourceGroup().location]",
             "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_vismasimpletestapp_name'))]"
+                "[resourceId('Microsoft.Web/sites', parameters('applicationName'))]"
             ],
             "tags": {
                 "hidden-related:diagnostics/applicationInsightsSettings": "{\"ApiKey\":\"/26/oyC74OrL5c02nQcTECVfnCcbbKy6CTUbkaXaFFfrvUmKxVry+WI7Mfo4OKZn\",\"AppId\":\"2915b0df-182b-4fc5-85ea-25d700330204\"}"
@@ -176,10 +216,10 @@
         {
             "type": "Microsoft.Web/sites/hostNameBindings",
             "apiVersion": "2018-11-01",
-            "name": "[concat(parameters('sites_vismasimpletestapp_name'), '/', parameters('sites_vismasimpletestapp_name'), '.azurewebsites.net')]",
+            "name": "[concat(parameters('applicationName'), '/', parameters('applicationName'), '.azurewebsites.net')]",
             "location": "West Europe",
             "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_vismasimpletestapp_name'))]"
+                "[resourceId('Microsoft.Web/sites', parameters('applicationName'))]"
             ],
             "properties": {
                 "siteName": "vismasimpletestapp",
