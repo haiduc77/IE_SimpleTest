@@ -1,9 +1,9 @@
 # Deploy infrastructure and web application with SQL and SQL database and Application Plan
 
-  Scope of documentation is to enable yourself to deploy an Azure App Service infrastrcuture with Application plan, SQL database and also upload the code of your simple application from a .Zip file:
+  Scope of documentation is to enable yourself to deploy an Azure App Service infrastructure with Application plan, SQL database and also upload the code of your simple application from a .Zip file:
   The repository contains:
   - the ARM template file for deploying the infrastrcuture (SQL server / Database / App service / Web app),
-  - the ARM parameters file in order to easly change the parameters for deploying in any environment
+  - the ARM parameters file in order to easily change the parameters for deploying in any environment
   - zip package of the web application
   - .github/workflows folder where the GitHub workflow action file is stored
   - and last but not least this readme file :).
@@ -11,11 +11,11 @@
    
 # Parameters from the **appservicetemplate.parameters.json**:
 # Params that need an explicit value
-- applicationName = YOUR_APPLICATION_NAME
-- svcPlanName = APPLICATION_PLAN_NAME
-- sqlServerName = SQL_SERVER_NAME
-- sqldbName = SQL_DBNAME
-# Params that have a default value but you can change it for you own project if you have a scalling plan
+- applicationName = *YOUR_APPLICATION_NAME
+- svcPlanName = *APPLICATION_PLAN_NAME
+- sqlServerName = *SQL_SERVER_NAME
+- sqldbName = *SQL_DBNAME
+# Params that have a default value, but you can change it for you own project if you have a scaling plan. You can check in the main ARM templates what are de allowed values.
 - sku
 - sqldbCollection
 - sqldbEdition
@@ -24,12 +24,12 @@
 - minimumCapacity
 - maximumCapacity
 - defaultCapacity
-- metricName
+- metricName - **you can also create you own metrics to adjust** 
 - metricThresholdToScaleOut
 - metricThresholdToScaleIn
 - changePercentScaleOut
 - changePercentScaleIn
-- autoscaleEnabled
+- autoscaleEnabled - **Make sure to set this parameter to *Enable* in case you have an *High Availability* plan and set up the rest of the metric parameters as you wish for you application.**
 
 # Parameters from the GitHub infrastructuredeploy.yml action file. This file will trigger the action which will in the end trigger the creation
 - AZURE_WEBAPP_NAME:
@@ -54,7 +54,7 @@
 - Fill in the required parameters in the ***.template.json** - applicationNam / svcPlanName / sqlServerName / sqldbNam
 - As default the action .yml file is set to be trigered on-demand **[workflow_dispatch]** but you can change it to trigger on the **[push]** action by changing the "on:" parameter
 - In the Action section on you repository you will see the workflow displayed **Deploy Infrastructure and Web application | SQL(SERVER AND DB) | APP SERVICE | APP PLAN | APP METRICS | WEP APP** - 
-- Execute the workflow and the infrastrcuture + web application will be deployed in you environment
+- Execute the workflow and the infrastructure + web application will be deployed in your environment
 
 
 **NOTES**
