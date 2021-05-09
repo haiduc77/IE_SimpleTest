@@ -15,7 +15,7 @@
 - svcPlanName = *APPLICATION_PLAN_NAME
 - sqlServerName = *SQL_SERVER_NAME
 - sqldbName = *SQL_DBNAME
-# Params that have a default value, but you can change it for you own project if you have a scaling plan. You can check in the main ARM templates what are de allowed values.
+# Params that have a default value, but you can change it for your own project if you have a scaling plan. You can check in the main ARM templates what are de allowed values.
 - sku
 - sqldbCollection
 - sqldbEdition
