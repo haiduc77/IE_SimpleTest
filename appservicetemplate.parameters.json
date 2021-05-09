@@ -7,10 +7,8 @@
             
         },
         "rgLocation":{
-            "value": "East US",
-            "metadata": {
-                "description": "Name of the resource group location"
-            }
+            "value": "East US"
+            
         },
         "applicationName": {
             "value": "simpletestwebappsilviu",
