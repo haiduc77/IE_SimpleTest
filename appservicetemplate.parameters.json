@@ -5,6 +5,9 @@
         "applicationName": {
             "value": "simpletestwebapp"
             
+        },
+        "appServicePlanName": {
+            "value": "simpletestwebappplan"        
         },        
         "sqlServerName" : {
             "value": "simpletestwebapp123"
