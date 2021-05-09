@@ -12,10 +12,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@main
+    #login to azure
     - uses: azure/login@v1
       with:
         creds: ${{ secrets.AZURE_TEST_CREDENTIALS }}
-    
+    #build up the infrastructure
     - uses: azure/arm-deploy@v1
       with:
         resourceGroupName: simpletestappvsm
@@ -25,10 +26,10 @@ jobs:
     
     - uses: TonyBogdanov/zip@1.0
       with:
-        args: unzip -qq ./simpletestapp.zip -d ./simpletestapp
+        args: unzip -qq ./simpletestapp.zip -d ./simpletestapp #unzips the package on the runner 
 
            
-     
+     #moving the files to the web app
     - uses: azure/webapps-deploy@v2
       with: 
         app-name: ${{ env.AZURE_WEBAPP_NAME }} # Replace with your app name
