@@ -17,7 +17,12 @@
         },
         
         "administratorLoginPassword": {
-            "value":"https://sqlpasssimpletestapp.vault.azure.net/secrets/SQLPassword/f68a82c82ef24079b1a28365ad95eb12"
+            "reference": {
+                "keyVault": {
+                    "id": "/subscriptions/6804d92f-755e-4d9c-b62d-82f7c3be954d/resourceGroups/simpletestappvsm/providers/Microsoft.KeyVault/vaults/sqlPasssimpletestapp"
+                },
+                "secretName": "SQLPassword"
+            }
         },
         "sqldbName" : {
             "value": "simpletestwebapp_db"

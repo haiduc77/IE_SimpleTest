@@ -239,6 +239,7 @@
             "type": "Microsoft.Sql/servers",
             "apiVersion": "2014-04-01",
             "location": "[resourceGroup().location]",
+            
             "tags": {
                 "displayName": "[parameters('sqlServerName')]"
             },
@@ -266,6 +267,7 @@
                   "type": "Microsoft.Sql/servers/databases",
                   "apiVersion": "2014-04-01",
                   "location": "[resourceGroup().location]",
+                  
                   "tags": {
                       "displayName": "[parameters('sqldbName')]"
                   },
@@ -277,6 +279,8 @@
                       "edition": "[parameters('sqldbEdition')]",
                       "maxSizeBytes": "1073741824",
                       "requestedServiceObjectiveName": "[parameters('sqldbRequestedObjectiveName')]"
+                      
+                      
                   }
               }
             ]
@@ -289,10 +293,12 @@
             "name": "[parameters('applicationName')]",
             "location": "[resourceGroup().location]",
             "dependsOn": [
-                "[resourceId('Microsoft.Web/serverfarms', parameters('svcPlanName'))]"
+                "[resourceId('Microsoft.Web/serverfarms', parameters('svcPlanName'))]",
+                "[resourceID('Microsoft.Sql/servers/databases', parameters('sqlServerName'), parameters('sqldbName'))]"
             ],
             "kind": "app",
             "properties": {
+                
                 "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('svcPlanName'))]",
                 "enabled": true,
                 "hostNameSslStates": [
@@ -311,7 +317,15 @@
                 "reserved": false,
                 "isXenon": false,
                 "hyperV": false,
-                "siteConfig": {},
+                "siteConfig": {
+                    "connectionStrings": [
+                        {
+                            "name":"ConnectionString",
+                            "connectionString" : "[concat('Server=tcp:', parameters('sqlServerName'), '.database.windows.net,1433;Initial Catalog=', parameters('sqldbName'), ';Persist Security Info=False;User ID=', parameters('administratorLogin'), ';Password=', parameters('administratorLoginPassword'), ';MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;')]"
+                        }
+                        
+                    ]
+                },
                 "scmSiteAlsoStopped": false,
                 "clientAffinityEnabled": true,
                 "clientCertEnabled": false,
@@ -320,6 +334,7 @@
                 "dailyMemoryTimeQuota": 0,
                 "httpsOnly": false,
                 "redundancyMode": "None"
+                
                 
             }
         }
