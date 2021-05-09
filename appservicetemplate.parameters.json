@@ -29,7 +29,7 @@
                 "keyVault": {
                     "id": "/subscriptions/6804d92f-755e-4d9c-b62d-82f7c3be954d/resourceGroups/brendaapplicationtest/providers/Microsoft.KeyVault/vaults/brendatest123"
                 },
-                "secretName": "brendasqluser"
+                "secretName": "sqlsilviutest"
             }
             
         },
