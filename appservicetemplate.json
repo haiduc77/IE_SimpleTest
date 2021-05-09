@@ -2,13 +2,7 @@
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "rgName": {
-            "type": "string"
-        },
-        "rgLocation": {
-            "type": "string",
-            "defaultValue":"East US"
-        },
+        
         "applicationName": {
             "type": "String"
         },
@@ -157,14 +151,7 @@
         "targetResourceId": "[resourceId('Microsoft.Web/serverFarms/', parameters('svcPlanName'))]"
     },
     "resources": [
-        {
-            "type": "Microsoft.Resources/resourceGroups",
-            "apiVersion": "2018-05-01",
-            "location": "[parameters('rgLocation')]",
-            "name": "[parameters('rgName')]",
-            "properties": {}
-        },
-        {
+            {
             "name": "[parameters('svcPlanName')]",
             "type": "Microsoft.Web/serverfarms",
             "location": "[resourceGroup().location]",
