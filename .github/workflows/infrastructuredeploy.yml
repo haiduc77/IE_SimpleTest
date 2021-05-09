@@ -1,6 +1,6 @@
 name: Deploy Infrastructure and Web application | SQL(SERVER AND DB) | APP SERVICE | APP PLAN | APP METRICS | WEP APP |
 
-on: [push]
+on: [workflow_dispatch]
 
 env:
   AZURE_WEBAPP_NAME: simpletestwebappsilviu    # set this to your application's name
