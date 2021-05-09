@@ -45,43 +45,43 @@
             
         },
         "autoscaleEnabled": {
-            "value": false,
+            "value": false
             
         },
         "svcPlanSize": {
-            "value": "S1",
+            "value": "S1"
             
         },
         "minimumCapacity": {
-            "value": 2,
+            "value": 2
             
         },
         "maximumCapacity": {
-            "value": 5,
+            "value": 5
             
         },
         "defaultCapacity": {
-            "value": 5,
+            "value": 5
             
         },
         "metricName": {
-            "value": "CpuPercentage",
+            "value": "CpuPercentage"
             
         },
         "metricThresholdToScaleOut": {
-            "value": 60,
+            "value": 60
             
         },
         "metricThresholdToScaleIn": {
-            "value": 20,
+            "value": 20
             
         },
         "changePercentScaleOut": {
-            "value": 20,
+            "value": 20
             
         },
         "changePercentScaleIn": {
-            "value": 10,
+            "value": 10
             
         }
            
