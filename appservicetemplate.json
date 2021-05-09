@@ -6,7 +6,8 @@
             "type": "string"
         },
         "rgLocation": {
-            "type": "string"
+            "type": "string",
+            "defaultValue":"East US"
         },
         "applicationName": {
             "type": "String"
