@@ -3,9 +3,9 @@ name: Deploy Infrastructure
 on: [workflow_dispatch]
 
 env:
-  AZURE_WEBAPP_NAME: csctestappvsm    # set this to your application's name
+  AZURE_WEBAPP_NAME: simpletestwebapp    # set this to your application's name
   AZURE_WEBAPP_PACKAGE_PATH: './simpletestapp'      # set this to the path to your web app project, defaults to the repository root
-  DOTNET_VERSION: '3.1.x'           # set this to the dot net version to use test
+  
 
 jobs:
   build-and-deploy:
