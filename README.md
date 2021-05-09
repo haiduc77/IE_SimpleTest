@@ -1,7 +1,7 @@
 # Deploy infrastructure and web application with SQL
 
   Scope of documentation is to enable yourself to deploy an Azure App Service infrastrcuture with Application plan, SQL database and also upload the code of your simple application from a .Zip file:
-  First make sure you will clone the entire repository structure and also the .github/workflow folder where the .yml action file stands 
+  Make sure you will clone the entire repository structure and also the **.github/workflow** folder where the **.yml** action file stands. 
 # Parameters from the **appservicetemplate.parameters.json**:
 # Params that need an explicit value
 - applicationName = YOUR_APPLICATION_NAME
@@ -33,7 +33,7 @@
 - Azure subscription
 - Resource group created in Azure portal
 - Azure KeyVault where you will store your SQL credentials
-  - Make sure that in the vault **Application Policies** tab you enable the Azure Resource Manager for template deployment so you can be able to use the secrets stored in the       Azure Vault
+  - Make sure that in the vault **Application Policies** tab you enable the **Azure Resource Manager for template deployment** so you can be able to use the secrets stored in the       Azure Vault
 - GitHub Secret to be stored with the credentials used for the ResourceGroup you will use for deployment
 
 # How to get the permissions for Git actions to be able to deploy your infrastructure:
