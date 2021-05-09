@@ -182,7 +182,7 @@
                 "redundancyMode": "None",
                 "dependsOn": [
                 "[resourceId('Microsoft.Web/serverfarms', parameters('appServicePlanName'))]"
-            ],
+            ]
             }
         },
         {
