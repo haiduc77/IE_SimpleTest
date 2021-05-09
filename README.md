@@ -32,7 +32,12 @@ Scope of documentation is to enable yourself to deploy an Azure App Service infr
 # Prerequisites 
 - Azure subscription
 - Resource group created in Azure portal
-- Azure KeyVault where you will store you SQL credential
+- Azure KeyVault where you will store your SQL credentials
 - GitHub Secret to be stored with the credentials used for the ResourceGroup you will use for deployment
 
-How to get the permissions for Git actions to be able to deploy your infrastructure:
+# How to get the permissions for Git actions to be able to deploy your infrastructure:
+- Azure CLI: use **az group** list to get you resource group where you want your deployment to be done. 
+- AZURE CLI: **az ad sp create-for-rbac --name "deploysimpletestapp" --role contributor --scope "<YOUSCOPE>" --sdk-auth**
+- copy the Credential code to your secret vault in GitHub and give it a name
+- Change the **creds:** parameter with you secret tag. Ex: ${{ secrets.<YOUT_CRED_TAG_HERE> }}
+  
