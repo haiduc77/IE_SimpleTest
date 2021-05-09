@@ -90,7 +90,7 @@
                     "displayName": "appServicePlan"
                 },
             "properties": {
-                "name": "[variables(parameters('appServicePlanName'))]",
+                "name": "[parameters('appServicePlanName')]",
                 "numberOfWorkers": 1
                 }
 
