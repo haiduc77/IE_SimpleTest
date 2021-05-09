@@ -17,7 +17,7 @@
         },
         
         "administratorLoginPassword": {
-            "value":"Planeta1234!"
+            "value":"https://sqlpasssimpletestapp.vault.azure.net/secrets/SQLPassword/f68a82c82ef24079b1a28365ad95eb12"
         },
         "sqldbName" : {
             "value": "simpletestwebapp_db"

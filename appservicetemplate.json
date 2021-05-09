@@ -35,7 +35,7 @@
         },
         
         "administratorLoginPassword": {
-            "type":"string"
+            "type": "securestring"
         },
 
         "sqldbName" : {
