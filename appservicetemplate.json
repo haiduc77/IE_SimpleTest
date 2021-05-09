@@ -147,11 +147,9 @@
         {
             "type": "Microsoft.Web/sites",
             "apiVersion": "2018-11-01",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/serverfarms', parameters('appServicePlanName'))]"
-            ],
+            
             "name": "[parameters('applicationName')]",
-            "location": "West Europe",
+            "location": "[resourceGroup().location]",
             
             "kind": "app",
             "properties": {
@@ -181,7 +179,10 @@
                 "containerSize": 0,
                 "dailyMemoryTimeQuota": 0,
                 "httpsOnly": false,
-                "redundancyMode": "None"
+                "redundancyMode": "None",
+                "dependsOn": [
+                "[resourceId('Microsoft.Web/serverfarms', parameters('appServicePlanName'))]"
+            ],
             }
         },
         {
