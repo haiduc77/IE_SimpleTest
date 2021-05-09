@@ -3,33 +3,114 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "applicationName": {
-            "value": "simpletestwebapp"
+            "value": "simpletestwebapp",
+            "metadata": {
+                "description": "Name of the application"
+              }
             
         },
         "svcPlanName": {
-            "value": "simpletestwebappplan"        
-        },        
+            "value": "simpletestwebappplan",
+            "metadata": {
+                "description": "Name of the application plan"
+              }        
+        },    
+        "sku": {
+            "value": "Standard",
+            "metadata": {
+                "description": "Subscription tier"
+              }
+        },    
         "sqlServerName" : {
-            "value": "simpletestwebapp123"
+            "value": "simpletestwebapp123",
+            "metadata": {
+                "description": "SQL server name"
+              }
         },
         "administratorLogin": {
-            "value": "cscsilviu"
+            "value": "cscsilviu",
+            "metadata": {
+                "description": "SQL account that you want to use"
+              }
         },
-        
         "administratorLoginPassword": {
             "reference": {
                 "keyVault": {
                     "id": "/subscriptions/6804d92f-755e-4d9c-b62d-82f7c3be954d/resourceGroups/simpletestappvsm/providers/Microsoft.KeyVault/vaults/sqlPasssimpletestapp"
                 },
                 "secretName": "SQLPassword"
-            }
+            },
+            "metadata": {
+                "description": "SQL account password stored in the Key vault secrets"
+              }
         },
         "sqldbName" : {
-            "value": "simpletestwebapp_db"
+            "value": "simpletestwebapp_db",
+            "metadata": {
+                "description": "SQL databasename"
+              }
         },
         "autoscaleEnabled": {
-            "value": false 
+            "value": false,
+            "metadata": {
+                "description": "A boolean to indicate whether the autoscale policy is enabled or disabled."
+              } 
+        },
+        "svcPlanSize": {
+            "value": "S1",
+            "metadata": {
+                "description": "The instance size of the app."
+              }
+        },
+        "minimumCapacity": {
+            "value": 2,
+            "metadata": {
+                "description": "The minimum capacity.  Autoscale engine will ensure the instance count is at least this value."
+              }
+        },
+        "maximumCapacity": {
+            "value": 5,
+            "metadata": {
+                "description": "The maximum capacity.  Autoscale engine will ensure the instance count is not greater than this value."
+              }
+        },
+        "defaultCapacity": {
+            "value": 5,
+            "metadata": {
+                "description": "The default capacity.  Autoscale engine will preventively set the instance count to be this value if it can not find any metric data."
+              }
+        },
+        "metricName": {
+            "value": "CpuPercentage",
+            "metadata": {
+                "description": "The metric name."
+              }
+        },
+        "metricThresholdToScaleOut": {
+            "value": 60,
+            "metadata": {
+                "description": "The metric upper threshold.  If the metric value is above this threshold then autoscale engine will initiate scale out action."
+              }
+        },
+        "metricThresholdToScaleIn": {
+            "value": 20,
+            "metadata": {
+                "description": "The metric lower threshold.  If the metric value is below this threshold then autoscale engine will initiate scale in action."
+              }
+        },
+        "changePercentScaleOut": {
+            "value": 20,
+            "metadata": {
+                "description": "The percentage to increase the instance count when autoscale engine is initiating scale out action."
+              }
+        },
+        "changePercentScaleIn": {
+            "value": 10,
+            "metadata": {
+                "description": "The percentage to decrease the instance count when autoscale engine is initiating scale in action."
+              }
         }
+           
         
         
     }
