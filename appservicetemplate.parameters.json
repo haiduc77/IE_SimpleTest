@@ -4,12 +4,12 @@
     "parameters": {
         
         "applicationName": {
-            "value": "simpletestwebappsilviu"
+            "value": "simpletestatnightsilviu"
             
             
         },
         "svcPlanName": {
-            "value": "simpletestwebappplansilviu"
+            "value": "simpletestwebappplansilviunight"
                     
         },    
         "sku": {
@@ -17,11 +17,11 @@
             
         },    
         "sqlServerName" : {
-            "value": "simpletestsilviu123test"
+            "value": "simpletestsilviu123testnight"
             
         },
         "administratorLogin": {
-            "value": "cscsilviusilviu"
+            "value": "cscsilviusilviunight"
             
         },
         "administratorLoginPassword": {
@@ -34,7 +34,7 @@
             
         },
         "sqldbName" : {
-            "value": "simpletestwebappsilviu_db"
+            "value": "simpletestwebappsilviunight_db"
             
         },
         "autoscaleEnabled": {
