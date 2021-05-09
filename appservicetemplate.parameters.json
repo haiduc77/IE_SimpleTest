@@ -11,35 +11,25 @@
             
         },
         "applicationName": {
-            "value": "simpletestwebappsilviu",
-            "metadata": {
-                "description": "Name of the application"
-              }
+            "value": "simpletestwebappsilviu"
+            
             
         },
         "svcPlanName": {
-            "value": "simpletestwebappplansilviu",
-            "metadata": {
-                "description": "Name of the application plan"
-              }        
+            "value": "simpletestwebappplansilviu"
+                    
         },    
         "sku": {
-            "value": "Standard",
-            "metadata": {
-                "description": "Subscription tier"
-              }
+            "value": "Standard"
+            
         },    
         "sqlServerName" : {
-            "value": "simpletestwebapp123silviu",
-            "metadata": {
-                "description": "SQL server name"
-              }
+            "value": "simpletestwebapp123silviu"
+            
         },
         "administratorLogin": {
-            "value": "cscsilviusilviu",
-            "metadata": {
-                "description": "SQL account that you want to use"
-              }
+            "value": "cscsilviusilviu"
+            
         },
         "administratorLoginPassword": {
             "reference": {
@@ -53,10 +43,8 @@
               }
         },
         "sqldbName" : {
-            "value": "simpletestwebappsilviu_db",
-            "metadata": {
-                "description": "SQL databasename"
-              }
+            "value": "simpletestwebappsilviu_db"
+            
         },
         "autoscaleEnabled": {
             "value": false,
