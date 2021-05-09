@@ -53,7 +53,7 @@
 - Fill in the required parameters in the .yml files: - *AZURE_WEBAPP_NAME / resourceGroupName / - creds
 - Fill in the required parameters in the ***.template.json** - applicationNam / svcPlanName / sqlServerName / sqldbNam
 - As default the action .yml file is set to be trigered on-demand **[workflow_dispatch]** but you can change it to trigger on the **[push]** action by changing the "on:" parameter
-- In the Action section on you repository you will see the workflow displayed **Deploy Infrastructure and Web application | SQL(SERVER AND DB) | APP SERVICE | APP PLAN | APP METRICS | WEP APP ** - 
+- In the Action section on you repository you will see the workflow displayed **Deploy Infrastructure and Web application | SQL(SERVER AND DB) | APP SERVICE | APP PLAN | APP METRICS | WEP APP** - 
 - Execute the workflow and the infrastrcuture + web application will be deployed in you environment
 
 
