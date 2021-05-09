@@ -2,15 +2,27 @@
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
+        "rqName":{
+            "value": "simpletestdonebysilviu",
+            "metadata": {
+                "descrption": "Name of the resource group"
+            }
+        },
+        "rgLocation":{
+            "value": "East US",
+            "metadata": {
+                "description": "Name of the resource group location"
+            }
+        },
         "applicationName": {
-            "value": "simpletestwebapp",
+            "value": "simpletestwebappsilviu",
             "metadata": {
                 "description": "Name of the application"
               }
             
         },
         "svcPlanName": {
-            "value": "simpletestwebappplan",
+            "value": "simpletestwebappplansilviu",
             "metadata": {
                 "description": "Name of the application plan"
               }        
@@ -22,13 +34,13 @@
               }
         },    
         "sqlServerName" : {
-            "value": "simpletestwebapp123",
+            "value": "simpletestwebapp123silviu",
             "metadata": {
                 "description": "SQL server name"
               }
         },
         "administratorLogin": {
-            "value": "cscsilviu",
+            "value": "cscsilviusilviu",
             "metadata": {
                 "description": "SQL account that you want to use"
               }
@@ -45,7 +57,7 @@
               }
         },
         "sqldbName" : {
-            "value": "simpletestwebapp_db",
+            "value": "simpletestwebappsilviu_db",
             "metadata": {
                 "description": "SQL databasename"
               }
