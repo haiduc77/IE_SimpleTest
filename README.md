@@ -1,4 +1,4 @@
-# Deploy infrastructure and web application with SQL and SQL database and Application Plan
+# Deploy Infrastructure: App Service, SQL server, SQL database, Application Plan and Web Application on top
 
   Scope of documentation is to enable yourself to deploy an Azure App Service infrastructure with Application plan, SQL database and also upload the code of your simple application from a .Zip file:
   The repository contains:
