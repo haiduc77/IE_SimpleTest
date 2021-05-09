@@ -150,7 +150,9 @@
             
             "name": "[parameters('applicationName')]",
             "location": "[resourceGroup().location]",
-            
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/serverfarms', parameters('appServicePlanName'))]"
+            ],
             "kind": "app",
             "properties": {
                 "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('appServicePlanName'))]",
@@ -179,10 +181,8 @@
                 "containerSize": 0,
                 "dailyMemoryTimeQuota": 0,
                 "httpsOnly": false,
-                "redundancyMode": "None",
-                "dependsOn": [
-                "[resourceId('Microsoft.Web/serverfarms', parameters('appServicePlanName'))]"
-            ]
+                "redundancyMode": "None"
+                
             }
         },
         {
