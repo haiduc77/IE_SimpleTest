@@ -29,3 +29,10 @@ Scope of documentation is to enable yourself to deploy an Azure App Service infr
 - resourceGroupName:
 - creds:
 
+# Prerequisites 
+- Azure subscription
+- Resource group created in Azure portal
+- Azure KeyVault where you will store you SQL credential
+- GitHub Secret to be stored with the credentials used for the ResourceGroup you will use for deployment
+
+How to get the permissions for Git actions to be able to deploy your infrastructure:
