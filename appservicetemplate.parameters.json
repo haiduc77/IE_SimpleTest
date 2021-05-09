@@ -37,10 +37,8 @@
                     "id": "/subscriptions/6804d92f-755e-4d9c-b62d-82f7c3be954d/resourceGroups/simpletestappvsm/providers/Microsoft.KeyVault/vaults/sqlPasssimpletestapp"
                 },
                 "secretName": "SQLPassword"
-            },
-            "metadata": {
-                "description": "SQL account password stored in the Key vault secrets"
-              }
+            }
+            
         },
         "sqldbName" : {
             "value": "simpletestwebappsilviu_db"
