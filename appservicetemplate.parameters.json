@@ -6,7 +6,7 @@
             "value": "simpletestwebapp"
             
         },
-        "appServicePlanName": {
+        "svcPlanName": {
             "value": "simpletestwebappplan"        
         },        
         "sqlServerName" : {
@@ -21,7 +21,11 @@
         },
         "sqldbName" : {
             "value": "simpletestwebapp_db"
-        }
+        },
+        "autoscaleEnabled": {
+            "value": false 
+        },
+        
         
     }
 }
