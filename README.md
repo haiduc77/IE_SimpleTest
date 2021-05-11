@@ -58,5 +58,7 @@
 
 
 **NOTES**
-- The .zip package is just a simple legacy application so in the **azure/webapps-deploy@v2** action we are just copying the content of the extracted .zip file (extracted on the **azure/arm-deploy@v1** action) 
+- The .zip package is just a simple legacy application so in the **azure/webapps-deploy@v2** action we are just copying the content of the extracted .zip file (extracted on the **TonyBogdanov/zip@1.0** action) 
+- The Infrastructure is deployed under the **azure/arm-deploy@v1** action.
 - In the ARM template the connection string is dynamically created and added to the service application.
+
