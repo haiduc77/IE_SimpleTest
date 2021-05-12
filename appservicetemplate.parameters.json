@@ -4,12 +4,12 @@
     "parameters": {
         
         "applicationName": {
-            "value": "simpletestatnightsilviu"
+            "value": "vismasimpletestapp"
             
             
         },
         "svcPlanName": {
-            "value": "simpletestwebappplansilviunight"
+            "value": "vismasimpletesappplan"
                     
         },    
         "sku": {
@@ -17,24 +17,24 @@
             
         },    
         "sqlServerName" : {
-            "value": "simpletestsilviu123testnight"
+            "value": "vismasimpletestappdbsrv"
             
         },
         "administratorLogin": {
-            "value": "cscsilviusilviunight"
+            "value": "vismasimpletessappsrvacc"
             
         },
         "administratorLoginPassword": {
             "reference": {
                 "keyVault": {
-                    "id": "/subscriptions/6804d92f-755e-4d9c-b62d-82f7c3be954d/resourceGroups/brendaapplicationtest/providers/Microsoft.KeyVault/vaults/brendatest123"
+                    "id": "/subscriptions/6804d92f-755e-4d9c-b62d-82f7c3be954d/resourceGroups/vismasimpletestapp/providers/Microsoft.KeyVault/vaults/vismasimpletestappkv"
                 },
-                "secretName": "sqlsilviutest"
+                "secretName": "vismasimpletestappdb"
             }
             
         },
         "sqldbName" : {
-            "value": "simpletestwebappsilviunight_db"
+            "value": "vismasimpletestapp_db"
             
         },
         "autoscaleEnabled": {
