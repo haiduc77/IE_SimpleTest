@@ -1,9 +1,9 @@
 name: Deploy Infrastructure and Web application | SQL(SERVER AND DB) | APP SERVICE | APP PLAN | APP METRICS | WEP APP |
 
-on: [workflow_dispatch]
+on: [push]
 
 env:
-  AZURE_WEBAPP_NAME: YOUR_APPLICATION_NAME    # set this to your application's name
+  AZURE_WEBAPP_NAME: cscsilviutestapp    # set this to your application's name
   AZURE_WEBAPP_PACKAGE_PATH: './simpletestapp'      # set this to the path to your web app project, defaults to the repository root test
   
 
@@ -19,7 +19,7 @@ jobs:
     #build up the infrastructure
     - uses: azure/arm-deploy@v1
       with:
-        resourceGroupName: <RESOURCE_GROUP>
+        resourceGroupName: cscsilviutestrg
         template: ./appservicetemplate.json
         parameters: ./appservicetemplate.parameters.json
     
