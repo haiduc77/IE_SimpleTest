@@ -50,11 +50,11 @@
             
         },
         "maximumCapacity": {
-            "value": 3
+            "value": 5
             
         },
         "defaultCapacity": {
-            "value": 2
+            "value": 5
             
         },
         "metricName": {
@@ -62,19 +62,19 @@
             
         },
         "metricThresholdToScaleOut": {
-            "value": 70
+            "value": 60
             
         },
         "metricThresholdToScaleIn": {
-            "value": 10
+            "value": 20
             
         },
         "changePercentScaleOut": {
-            "value": 15
+            "value": 20
             
         },
         "changePercentScaleIn": {
-            "value": 25
+            "value": 10
             
         }
            
