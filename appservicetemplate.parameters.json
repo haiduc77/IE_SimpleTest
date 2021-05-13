@@ -4,12 +4,12 @@
     "parameters": {
         
         "applicationName": {
-            "value": "vismasimpletestapp"
+            "value": "vismasimpletestappsilviu"
             
             
         },
         "svcPlanName": {
-            "value": "vismasimpletesappplan"
+            "value": "vismasimpletesapppsilviuplan"
                     
         },    
         "sku": {
@@ -17,28 +17,28 @@
             
         },    
         "sqlServerName" : {
-            "value": "vismasimpletestappdbsrv"
+            "value": "vismasimpletestappsilviudbsrv"
             
         },
         "administratorLogin": {
-            "value": "vismasimpletessappsrvacc"
+            "value": "vismasimpletessappsilviusrvacc"
             
         },
         "administratorLoginPassword": {
             "reference": {
                 "keyVault": {
-                    "id": "/subscriptions/6804d92f-755e-4d9c-b62d-82f7c3be954d/resourceGroups/vismasimpletestapp/providers/Microsoft.KeyVault/vaults/vismasimpletestappkv"
+                    "id": "/subscriptions/6804d92f-755e-4d9c-b62d-82f7c3be954d/resourceGroups/vismasimpletestappsilviurg/providers/Microsoft.KeyVault/vaults/vismatestkv"
                 },
-                "secretName": "vismasimpletestappdb"
+                "secretName": "sqlconnectioncreds"
             }
             
         },
         "sqldbName" : {
-            "value": "vismasimpletestapp_db"
+            "value": "vismasimpletestappsilviu_db"
             
         },
         "autoscaleEnabled": {
-            "value": false
+            "value": true
             
         },
         "svcPlanSize": {
@@ -50,11 +50,11 @@
             
         },
         "maximumCapacity": {
-            "value": 5
+            "value": 3
             
         },
         "defaultCapacity": {
-            "value": 5
+            "value": 2
             
         },
         "metricName": {
@@ -62,19 +62,19 @@
             
         },
         "metricThresholdToScaleOut": {
-            "value": 60
+            "value": 70
             
         },
         "metricThresholdToScaleIn": {
-            "value": 20
+            "value": 10
             
         },
         "changePercentScaleOut": {
-            "value": 20
+            "value": 15
             
         },
         "changePercentScaleIn": {
-            "value": 10
+            "value": 25
             
         }
            
