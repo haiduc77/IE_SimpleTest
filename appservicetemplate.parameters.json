@@ -4,12 +4,12 @@
     "parameters": {
         
         "applicationName": {
-            "value": "vismasimpletestappsilviu"
+            "value": "<YOUR_APPLICATION_NAME>"
             
             
         },
         "svcPlanName": {
-            "value": "vismasimpletesapppsilviuplan"
+            "value": "<YOUR_APPLICATION_PLAN_NAME>"
                     
         },    
         "sku": {
@@ -17,24 +17,24 @@
             
         },    
         "sqlServerName" : {
-            "value": "vismasimpletestappsilviudbsrv"
+            "value": "<YOUR_SQL_SERVER_NAME>"
             
         },
         "administratorLogin": {
-            "value": "vismasimpletessappsilviusrvacc"
+            "value": "<ADMIN_LOGIN>"
             
         },
         "administratorLoginPassword": {
             "reference": {
                 "keyVault": {
-                    "id": "/subscriptions/6804d92f-755e-4d9c-b62d-82f7c3be954d/resourceGroups/vismasimpletestappsilviurg/providers/Microsoft.KeyVault/vaults/vismatestkv"
+                    "id": "YOUR_KEYVAULT"
                 },
-                "secretName": "sqlconnectioncreds"
+                "secretName": "<KEYVAULT_SECRET>"
             }
             
         },
         "sqldbName" : {
-            "value": "vismasimpletestappsilviu_db"
+            "value": "<YOUR_SQL_DB_NAME>"
             
         },
         "autoscaleEnabled": {

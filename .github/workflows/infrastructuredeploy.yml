@@ -3,7 +3,7 @@ name: Deploy Infrastructure and Web application | SQL(SERVER AND DB) | APP SERVI
 on: [workflow_dispatch]
 
 env:
-  AZURE_WEBAPP_NAME: vismasimpletestappsilviu    # set this to your application's name
+  AZURE_WEBAPP_NAME: YOUR_APPLICATION_NAME    # set this to your application's name
   AZURE_WEBAPP_PACKAGE_PATH: './simpletestapp'      # set this to the path to your web app project, defaults to the repository root test
   
 
@@ -19,7 +19,7 @@ jobs:
     #build up the infrastructure
     - uses: azure/arm-deploy@v1
       with:
-        resourceGroupName: vismasimpletestappsilviurg
+        resourceGroupName: <RESOURCE_GROUP>
         template: ./appservicetemplate.json
         parameters: ./appservicetemplate.parameters.json
     
@@ -32,7 +32,7 @@ jobs:
      #moving the files to the web app
     - uses: azure/webapps-deploy@v2
       with: 
-        app-name: ${{ env.AZURE_WEBAPP_NAME }} # Replace with your app name
+        app-name: ${{ env.AZURE_WEBAPP_NAME }} 
         package: '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}'
         
         
